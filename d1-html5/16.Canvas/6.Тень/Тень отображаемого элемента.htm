@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Тень отображаемого элемента</title>
+    <script>
+        function draw() {
+            let context = document.getElementById("canvas").getContext("2d");
+            context.font = "bold 40px Segoe UI";
+            context.fillStyle = "Orange";
+            context.textBaseline = "alphabetic";
+
+            context.shadowColor = "rgba(0, 0, 0, 0.2)"; //цвет тени
+            context.shadowOffsetX = 5;                  //отступ по оси X
+            context.shadowOffsetY = 5;                  //отступ по оси Y
+            context.shadowBlur = 10;                    //размытие
+
+            let text = "HTML5 Rocks!";
+            let w = context.measureText(text);
+            context.fillText(text, (context.canvas.width - w.width) / 2, 100);
+        }
+
+        window.addEventListener("load", draw, true);
+
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300" style="border: solid 1px black;">
+    </canvas>
+</body>
+</html>

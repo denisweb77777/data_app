@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Нумерованный список</title>
+
+	<style>
+			ol
+			{
+				list-style-type:decimal;  /*decimal - арабские числа (1,2,3,4)
+											decimal-leading-zero - арабские числа с нулем впереди
+											lower-alpha - строчные латинские буквы
+										    upper-alpha- заглавные латинские буквы
+										    lower-roman- римские числа в нижнем регистре
+											upper-roman- римские числа в верхнем регистре
+											inherit - наследует значение родителя.
+											armenian - традиционная армянская нумерация
+										    georgian - традиционная грузинская нумерация
+										    none - отменяет маркеры*/
+			}
+		</style>
+</head>
+<body>
+
+	<!-- 
+		start    - с какого номера будет начинаться список.
+		reversed - номирация списка происходит с конца.
+		value    - явное указание маркера.
+	-->
+	<ol start="3" reversed>
+		<li value="1">Элемент 1</li> 
+		<li>Элемент 2</li>
+		<li>Элемент 3</li>
+	</ol>
+
+</body>
+</html>

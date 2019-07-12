@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Трансформация transform</title>
+    <script>
+        function loadHandler() {
+            // функция для получения элементов по id
+            let $ = function (id) {
+                return document.getElementById(id);
+            }
+
+            // контекст для canvas
+            let context = $("canvas").getContext("2d");
+
+            let img = new Image();
+            img.src = "img1.png";
+            img.onload = draw;
+            $("btn").onclick = draw;
+
+            function draw() {
+                // очистка всего полотна.
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+                let a = $("a").value;
+                let b = $("b").value;
+                let c = $("c").value;
+                let d = $("d").value;
+                let tx = $("tx").value;
+                let ty = $("ty").value;
+                
+                // сохранение состояния полотна и начала системы координат.
+                context.save();
+                // перемещение
+                context.translate(100, 100);
+                // трансформация
+                context.transform(a, b, c, d, tx, ty); // позволяет задать матрицу трансформации отображаемого элемента
+                //a  - масштаб по оси X
+                //b  - искривление по оси Y
+                //c  - искривление по оси X
+                //d  - масштаб по оси Y
+                //tx - смещение по оси X
+                //ty - смещение по оси Y
+                //context.transform(0.866, -0.5, 0.866, 0.5, 0, 0);
+                context.drawImage(img, 0, 0, 100, 100);
+                // восстановление сохранённого состояния полотна.
+                context.restore();
+            }
+        }
+
+      
+        window.addEventListener("load", loadHandler, true);
+        
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300">
+    </canvas>
+    <div style="border: 1px solid gray; padding: 8px; margin: 8px;">
+        масштаб X
+        <input type="text" id="a" value="1" />
+        <br />
+        искривление по Y
+        <input type="text" id="b" value="0" />
+        <br />
+        искривление по X
+        <input type="text" id="c" value="0" />
+        <br />
+        масштаб Y
+        <input type="text" id="d" value="1" />
+        <br />
+        перемещение X
+        <input type="text" id="tx" value="0" />
+        <br />
+        перемещение Y
+        <input type="text" id="ty" value="0" />
+        <input type="button" id="btn" value="transform" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Отображение текстового содержимого</title>
+    <script>
+        function draw() {
+            let context = document.getElementById("canvas").getContext("2d");
+            context.beginPath();
+            context.moveTo(0, 100);
+            context.lineTo(300, 100);
+            context.stroke();
+            // настройка шрфита
+            // font: [font-style||font-variant||font-weight] font-size [/line-height] font-family | inherit
+            context.font = "bold 24px Segoe UI";
+            context.textBaseline = "alphabetic";  //базовая линия для вывода шрифта
+
+            let text = "HTML5 Rocks!";
+            //measureText(text) - возвращает ширину текста в пикселях
+            let w = context.measureText(text);
+            //fillText(p1,p2) - позволяет добавить текст на холст
+            //p1 - текст для добавления
+            //p2 - координаты на холсте для добавления текста
+            
+            context.fillText(text, (context.canvas.width - w.width) / 2, 98);
+        }
+
+        window.addEventListener("load", draw, true);
+
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300" style="border: solid 1px black;">
+    </canvas>
+</body>
+</html>

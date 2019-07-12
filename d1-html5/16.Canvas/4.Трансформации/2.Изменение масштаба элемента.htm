@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Изменение масштаба элемента</title>
+    <script>
+        function loadHandler() {
+            // функция для получения элементов по id
+            let $ = function (id) {
+                return document.getElementById(id);
+            }
+
+            // контекст для canvas
+            let context = $("canvas").getContext("2d");
+
+            let img = new Image();
+            img.src = "img1.png";
+            
+            img.onload = draw;// при загрузке изображения вызвать функцию draw
+
+            $("btn").onclick = draw;// при нажатии на кнопку вызвать функцию draw
+
+            function draw() {
+                // очистка всего полотна.
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+                let x = $("X").value;
+                let y = $("Y").value;
+
+                // сохранение состояния полотна и начала системы координат.
+                context.save();
+                // трансформация масштабирования.
+                //scale(x, y) - позволяет задать масштаб отображаемого элемента
+                //1  - 100%
+                context.scale(x, y);
+                context.drawImage(img, 0, 0, 100, 100); 
+                // восстановление сохранённого состояния полотна.
+                context.restore();
+            }
+        }
+
+        window.addEventListener("load", loadHandler, true);
+
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300">
+    </canvas>
+    <div style="border: 1px solid gray; padding: 8px; margin: 8px;">
+        Масштаб X 
+        <input type="text" id="X" value="1" />
+        Масштаб Y 
+        <input type="text" id="Y" value="1" />
+
+        <input type="button" id="btn" value="scale" />
+    </div>
+</body>
+</html>
+
+

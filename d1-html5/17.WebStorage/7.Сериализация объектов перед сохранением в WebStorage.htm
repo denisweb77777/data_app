@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Сериализация объектов перед сохранением в WebStorage</title>
+</head>
+
+<body>
+    <button onclick="save()">Save</button>
+    <button onclick="read()">Read</button>
+    <button onclick="clearStorage()">Clear</button>
+
+    <script>
+        let person = {};
+        person.firstName = "Jhon";
+        person.lastName = "Doe";
+        person.age = 30;
+
+        //сохранение объекта в формате json в локальном хранилище
+        function save() {
+            window.localStorage["data"] = JSON.stringify(person); // сериализация данных и сохранение их в локальном хранилище
+        }
+  
+        //чтение данных из хранилища, используя парсинг
+        function read() {
+            let data = JSON.parse(window.localStorage["data"]); // десериализация объекта из локального хранилища.
+            alert("First Name: " + data.firstName +
+                "\r\nLast Name: " + data.lastName +
+                "\r\nAge: " + data.age);
+        }
+
+        //очистка хранилища
+        function clearStorage() {
+            window.localStorage.clear(); // удаление данных из локального хранилища
+        }
+
+    </script>
+</body>
+</html>

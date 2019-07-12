@@ -1,0 +1,31 @@
+<!-- 
+	Геолокация(Geolocation API) - набор функций позволяющее определить текущее место расположение указанного объекта
+-->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Проверка поддержки</title>
+</head>
+
+<body>
+
+    <script>
+
+        function checkSupport() {
+            if (navigator.geolocation) {
+                document.body.innerHTML = "Ваш браузер поддерживает HTML5 Geolocation API!";
+            }
+            else {
+                document.body.innerHTML = "Ваш браузер НЕ поддерживает HTML5 Geolocation API!";
+            }
+        }
+
+        window.addEventListener("load", checkSupport, true);
+
+    </script>
+
+</body>
+
+</html>

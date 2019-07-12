@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Форма</title>
+</head>
+<body>
+  <form action="index.php" method="POST">
+    <input type="text"     name="имя"   value="значение" size="размер" maxlength="число" /><br><!--valuee, size, maxlength - не обязательные параметры-->
+    <input type="password" name="имя"   value="значение" size="размер" maxlength="число" /><br><!--valuee, size, maxlength - не обязательные параметры-->
+    <input type="hidden"   name="имя"   value="значение" /><br>
+    <input type="checkbox" name="имя"   value="значение" checked="checked" /><br><!--checked - не обязательный параметр-->
+    <input type="checkbox" name="имя[]" value="значение" checked="checked" /><br><!--checked - не обязательный параметр-->
+    <input type="radio"    name="имя"   value="значение" checked="checked" /><br><!--checked - не обязательный параметр-->
+    <input type="reset"    name="reset" value="текст_кнопки" /><br>
+    <input type="submit"   name="имя"   value="текст_кнопки" /><br><!--name - не обязательный параметр-->
+    <input type="image"    name="имя"   src="изображение"    /><br><!--name - не обязательный параметр-->
+    <input type="email"    name="email" title="Неправильный email"/><br>
+    <input type="url"      name="site"  title="Неправильный url"  /><br>
+    <input type="tel"      name="site"  title="Неправильный url"  /><br>
+    <input type="search"   name="phone" /><br> 
+    <input type="file"     name="upload"  value=""        /><br>
+    <input type="button"   name="button1" value="button1" /><br>
+    <input type="datetime" name="datetime"><br>
+    <input type="date"     name="date"   min="2011-03-15" max="2012-02-05"><br>
+    <input type="time"     name="time"   min="08:00"      max="18:00"     ><br>
+    <input type="number"   name="num"    min="2"          max="20"  step="2"/><br>
+    <input type="range"    name="volume" min="2"          max="20"  step="1" value="5"><br>
+    <input type="color"    name="color"><br>  
+        
+    <!--Текстовое поле-->
+    <textarea name="имя" cols="10px" rows="40px" wrap="Virtual | Physical | None"> <!--cols, rows, wrap  - не обязательный параметр-->
+      Текст который будет изначально отображен в текстовом поле
+    </textarea><br>
+        
+    <!--Тег label-->
+    <!--1-й способ-->
+    <label>
+      Сделать выбор
+      <input type="radio" name="имя" value="значение" />
+    </label><br>
+    <!--2-й способ-->
+    <label for="id1"></label>
+    <input id ="id1" type="radio" name="имя" value="значение" />
+    
+    <!--Рамка-->
+    <fieldset>
+      <legend> Название рамки </legend>
+        <input type="text" name="t" />
+        <input type="password" name="p" />
+    </fieldset>
+    
+    <!--Атрибуты HTML5-->
+    <!--required     - поле обязательно для заполнения-->
+    <input type="password" name="имя"  required="required"/><br>
+    <!--autofocus    - элемент получает фокус при загрузке-->
+    <input type="text"     name="имя"  autofocus="autofocus"/>
+    <!--placeholder  - подзказка в поле элемента-->
+    <input type="text"     name="имя"  placeholder="Подсказка"/>
+    <!--autocomplete - браузер не сохраняет значение элемента(при возврате)-->
+    <input type="text"     name="имя"  autocomplete="off"/>
+    <!--pattern      - позволяет проверить на соответствие регулярному выражению-->
+    <input type="tel"      name="имя"  pattern="регулярное выражение"/>
+    
+  </form>
+</body>
+</html>
+
+
+<!--где:
+action - адрес сценария для обработки формы(куда будут отправлены данные).
+Относительный путь: “Form.php”
+Абсолютный путь:    “/папка/Form.php”
+Абсолютный путь на другом хосте:  “http://имя_хоста.com/папка/ Form.php ”
+method – каким методом посылаются данные (если не задать параметр то по умолчанию будет  использоваться метод  GET)
+
+type-тип поля:
+text      – текст
+password  - пароль
+hidden    - скрытое поле
+checkbox  - выбор элементов . Для выбора  из нескольких элементов им должны быть присвоены одинаковые имена. Для выбора нескольких значений в переменной name нужно указать массив name=”имя[]”.
+radio     - переключатель, используемый для отправки одного значения. Checked может быть только у одного элемента.
+reset     – сбрасывает все элементы в форме(не рекомендуется использовать).
+submit    – кнопка отправки.                                                                                                                                              
+image     - создает рисунок при нажатии на который будет происходить тоже самое что и принажатии кнопки submit.
+email     - email адрес
+url       - адрес сайта
+tel       - на мобильных устройствах вызывается клавиатура для ввода телефона
+search    - для поиска
+number    - для цифр
+file      - выбор файла который нужно будет загрузить на сервер (опасный элемент т.к. обеспечивает доступ к машине пользователя)
+button    - просто кнопка (основное событие onclick)
+datetime  - для даты и времени
+date      - для даты    (можно указать диапазон)
+time      - для времени (можно указать диапазон)
+number    - для цифр    (можно указать диапазон и шаг)
+range     - создается ползунок (можно указать диапазон, шаг и начальное значение)
+color     - выбор из палитры цветов
+textarea  - используется для отправки не одной строки а сразу нескольких.                                                                                                                          
+label     - в эти теги можно заключать элементы формы обеспечивая его выбор щелчком на любой видимой части , содержащейся между открывающим и закрывающим тегами <label>.
+fieldset  - задание рамки
+legend    - задание названия рамки
+
+Примечания:Если у поля не задан атрибут name его имя и параметры не будут отправлены сценарию.
+           Virtual наиболее удобный тип ввода для textarea.
+-->

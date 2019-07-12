@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Подключение файлов</title>
+
+	<!--Подключение внешних файлов в head-->
+	<link rel="stylesheet" href="style.css"/>                            <!-- подключение стилей -->
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>   <!-- иконка сайта -->
+</head>
+<body>
+
+	<!-- Внедрение кода в html-разметку                   -->
+  <!-- <?php........?>     - вставка php кода           -->
+  <!-- <script>  </script> - вставка javascript кода    -->
+
+	<!--Подключение внешних файлов в конце body-->
+  <!--<?php require_once "php/headerForm.php"?> - подключение php-файла (в случае невозможности подключения файла работа сценария завершится)   -->
+  <!--<?php include_once "php/headerForm.php"?> - подключение php-файла (в случае невозможности подключения файла работа сценария продолжится)  -->
+	<script src="jquery-1.12.0.min.js"></script>   <!-- подключение библиотеки jquery(подключаеть перед js-файлами ее использующими) -->
+  <script src="js/file.js"></script>             <!-- подключение js-файла -->
+</body>
+</html>
+
+
+
+
+

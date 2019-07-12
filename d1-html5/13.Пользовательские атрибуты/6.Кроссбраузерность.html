@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Кроссбраузерность</title>
+</head>
+
+<body>
+
+	<ul>
+		<li data-year="1996" data-color="белый">Cabrio</li>
+		<li data-year="2000" data-color="черный">Corrado</li>
+	</ul>
+
+	<p></p>
+
+	<script>
+		window.onload = function () {
+			let cars = document.getElementsByTagName("li");
+
+			//запись атрибутов
+			for (let i = 0; i < cars.length; i++) {
+
+				// если dataset поддерживается
+				if (cars[i].dataset) {
+					cars[0].dataset.color = "зеленый";
+					cars[1].dataset.color = "синий";
+				}
+				// если dataset неподдерживается
+				else {
+					cars[0].setAttribute("data-color", "зеленый");
+					cars[1].setAttribute("data-color", "синий");
+
+				}
+			}
+
+			//чтение атрибутов
+			let getVal = '';
+
+			for (let i = 0; i < cars.length; i++) {
+
+				// если dataset поддерживается
+				if (cars[i].dataset) {
+					getVal += cars[i].dataset.color + "<br>";
+				}
+				// если dataset неподдерживается
+				else {
+					getVal += cars[i].getAttribute("data-color") + "<br>";
+				}
+			}
+
+			document.getElementsByTagName('p')[0].innerHTML = getVal;
+
+		}
+
+	</script>
+
+</body>
+
+</html>

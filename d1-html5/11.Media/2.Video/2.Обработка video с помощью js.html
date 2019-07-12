@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Document</title>
+</head>
+
+<body>
+
+	<video id="video" style="border:5px solid gray; cursor:pointer">
+		<source src="video.mp4"></source>
+	</video>
+
+	<script>
+		window.onload = function () {
+			
+			let videoElement = document.getElementById("video");
+
+			//настройка размеров видеофайла
+			videoElement.width = videoElement.videoWidth / 2;
+			videoElement.height = videoElement.videoHeight / 2;
+
+			//запуск видео 
+			videoElement.onclick = function () {
+				this.play();
+			}
+
+			//остановка видео по двойному щелчку
+			videoElement.ondblclick = function () {
+				this.pause();
+			}
+		}
+	</script>
+
+</body>
+
+</html>

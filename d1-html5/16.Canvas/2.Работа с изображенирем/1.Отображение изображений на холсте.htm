@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Отображение изображений на холсте</title>
+    <script>
+        function draw() {
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            let logo = new Image();         //создание объекта Image
+
+            //после загрузки изображения 
+            logo.onload = function () {
+                //drawImage() - позволяет отобразить изображение logo на холсте 
+                //22, 22 - координаты начальной точки отображаемого изображения 
+                context.drawImage(logo, 22, 22);
+            };
+
+            logo.src = "img1.png";          //путь к изображению
+        }
+
+        window.addEventListener("load", draw, true);
+        
+    </script>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+</html>

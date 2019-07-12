@@ -1,0 +1,31 @@
+﻿<!-- 
+    WebWorkers - технология предоставляющая веб-приложениям возможность
+    выполнять фоновые задачи в отдельных потоках(многопоточное программирование)
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Проверка поддержки WebWorkers</title>
+</head>
+
+<body>
+    <div id="support">
+
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            if (typeof Worker !== "undefined") {
+                document.getElementById("support").innerHTML = "Браузер поддерживает HTML 5 Web Workers";
+            }
+            else {
+                document.getElementById("support").innerHTML = "Браузер НЕ поддерживает HTML 5 Web Workers";
+            }
+        }, false);
+    </script>
+    
+</body>
+
+</html>

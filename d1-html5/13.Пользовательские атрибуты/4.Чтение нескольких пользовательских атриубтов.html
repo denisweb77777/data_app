@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Чтение нескольких пользовательских атриубтов</title>
+</head>
+<body>
+
+    <ul>
+        <li data-year-production="1996" data-color="белый" data-engine="VR6">Cabrio</li>
+        <li data-year-production="1993" data-color="фиолетовый" data-engine="VR6">Corrado</li>
+        <li data-year-production="2008" data-color="красный" data-engine="2.0T">Eos</li>
+        <li data-year-production="2003" data-color="синий" data-engine="W8">Passat</li>
+    </ul>
+
+    <p></p>
+
+    <script>
+            window.onload = function () {
+                let cars = document.getElementsByTagName("li");
+                let output = "Цвета автомобилей: <br />";
+    
+                for (let i = 0; i < cars.length; i++) {
+    
+                    output += cars[i].dataset.color + "<br />";
+    
+                    // Если атрибут содержит несколько дефисов после первого дефиса, например, data-year-production,
+                    // то для получения доступа к такому атрибуту из JavaScript кода необходимо использовать имя yearProduction - 
+                    // удалить дефис, а следующий после него символ перевести в верхний регистр.
+                    // output += cars[i].dataset.yearProduction + "<br />";
+                }
+    
+                document.getElementsByTagName("p")[0].innerHTML = output;
+            }
+        </script>
+    
+</body>
+</html>

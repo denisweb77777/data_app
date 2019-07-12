@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Линейный градиент(на основе вектора)</title>
+    <script>
+        function draw() {
+    
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            // Создание объекта градиента и указание начальной и конечной точки оси градиента.
+            let gradient = context.createLinearGradient(0, 0, 0, 300);
+
+            // Добавление цвета и смещения позиции остановки цвета.
+            gradient.addColorStop(0, "Blue");
+            //0 - начало вектора градиента
+            
+            // Добавление цвета и смещения позиции остановки цвета.
+            gradient.addColorStop(0.5, "LightBlue");
+            //0.5 - середина вектора градиента
+
+            // Добавление цвета и смещения позиции остановки цвета.
+            gradient.addColorStop(1, "White");
+            //1 - конец вектора градиента 
+
+            // Установка объекта градиента в качестве цвета заливки контекста.
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, 300, 300);
+        }
+
+        
+        window.addEventListener("load", draw, true);
+        
+    </script>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+</html>

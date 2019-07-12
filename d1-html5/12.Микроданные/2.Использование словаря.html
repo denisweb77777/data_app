@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Использование словаря</title>
+</head>
+<body>
+    <!-- itemtype - позволяет обратиться к определенной сущности из словаря-->
+    
+    <!-- itemtype="http://schema.org/Person" - указывает что section содержит информацию о человеке -->
+    <section itemscope itemtype="http://schema.org/Person">
+
+        <!-- itemprop="name" - указывает что, это не просто h1, а элемент в котором находиться имя человека-->
+        <h1 itemprop="name">Tим Бернерс-Ли</h1>
+        <img itemprop="image" src="http://www.w3.org/Press/Stock/Berners-Lee/2001-europaeum-eighth.jpg">
+
+        <!-- itemtype="http://schema.org/Organization" - Элемент содержит данные о организации -->
+        <p itemprop="affiliation" itemscope itemtype = "http://schema.org/Organization">
+            <span itemprop="name">Консорциум Всемирной паутины</span>,
+            <span itemprop="url">http://www.w3.org</span>
+        </p>
+
+        <!-- itemtype="http://schema.org/PostalAddress" - элемент содержит данные о почтовом адресе -->
+        <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="addressLocality">Кембридж</span>,
+            <span itemprop="addressRegion">Maccaчусетс</span>
+        </p>
+
+        <a itemprop="url" href="http://www.seoded.ru/istoriya/biography/berners-lee.html">Сайт W3C</a>
+
+    </section>
+
+</body>
+</html>

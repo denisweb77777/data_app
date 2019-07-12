@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Рисование кривой(две контролирующие точки) bezierCurveTo()</title>
+    <script src="Modernizr-2.0.6.js"></script>
+    <script>
+        function draw() {
+            if (!Modernizr.canvas) return;
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            // первая точка
+            context.moveTo(0, 100);
+
+            context.bezierCurveTo(/*управляющая точка 1*/50, 70, /*управляющая точка 2*/90, 10, /*вторая точка*/100, 100);
+
+            context.lineWidth = 3;
+            context.strokeStyle = "red";
+            context.stroke();
+        }
+
+
+        window.addEventListener("load", draw, true);
+        
+    </script>
+</head>
+<body>
+    <canvas id="canvas" height="100" width="100" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+</html>

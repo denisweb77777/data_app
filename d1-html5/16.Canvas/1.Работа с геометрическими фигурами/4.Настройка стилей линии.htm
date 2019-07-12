@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Настройка стилей линии</title>
+    <script src="Modernizr-2.0.6.js"></script>
+    <script>
+        function draw() {
+            // проверка поддержки элемента canvas в браузере.
+            if (!Modernizr.canvas) return;
+
+            // получение элемента и его графического контекста.
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            context.save();
+            context.translate(100, 100);
+
+            // начало пути.
+            context.beginPath();
+            context.moveTo(0, 0);
+            context.lineTo(100, 0);
+            context.lineTo(100, 100);
+            context.lineTo(0, 100);
+            context.closePath();
+
+            // настройка стилей линии.
+            context.lineWidth = 8;              //толщина линии
+            context.strokeStyle = "green";      //цвет линии (форматы CSS)
+            context.lineJoin = "bevel";         //стыки линий(round - закруглены)
+                                                //           (bevel - не закруглены)
+            context.stroke();
+
+            // восстанавливаем прежнее состояние контекста.
+            context.restore();
+        }
+
+        
+        window.addEventListener("load", draw, true);
+
+    </script>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+</html>

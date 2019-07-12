@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Обработка audio с помощью js</title>
+</head>
+
+<body>
+
+	<input id="playButton1" type="button" value="Play">
+	<input id="playButton2" type="button" value="Воспроизведение с 30 секунды" onclick="playAt(30)">
+
+	<audio id="audio">
+		<source src="audio.mp3">
+		<source src="audio.ogg"> 
+		Браузер не поддерживает воспроизведение звуковых медиафайлов
+	</audio>
+
+	<script>
+		//панель управления
+		document.getElementById("playButton1").onclick = playAudio;
+
+		function playAudio() {
+			let audio = document.getElementById("audio");
+			let button = document.getElementById("playButton1");
+
+			if (audio.paused) {        //если аудиоплеер на паузе 
+				audio.play();          //начать воспроизвидение
+				button.value = "Stop"; //поменять надпись на кнопке на Stop
+			} else {                   //если аудиоплеер не на паузе (музыка воспроизводится)
+				audio.pause()          //поставить воспроизвидение на паузу
+				button.value = "Play"; //поменять надпись на кнопке на Play
+			}
+		}
+
+		//воспроизведение начиная с указанного времени
+		function playAt(time) {
+			let audio = document.getElementById("audio");
+			audio.currentTime = time;
+			audio.play();
+		}
+
+	</script>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Несколько действий в потоке</title>
+</head>
+<body>
+
+    <button id="btnStart">
+        Команда Старт</button>
+    <button id="btnUnknown">
+        Команда Unknown</button>
+    <button id="btnStop">
+        Команда Стоп</button>
+
+    <div id="output">
+    </div>
+
+    <script>
+        let worker = new Worker("task2.js"); // создание потока Web Worker.
+
+        window.addEventListener("load", function () {
+            document.getElementById("btnStart").addEventListener("click", startCmd, true);
+            document.getElementById("btnUnknown").addEventListener("click", unknownCmd, true);
+            document.getElementById("btnStop").addEventListener("click", stopCmd, true);
+            worker.addEventListener("message", messageHandler, true);
+        }, true);
+
+        //запуск потока обработка данных в потоке
+        function startCmd() {
+            // Потоку отправляется объект-команда
+            worker.postMessage({ cmd: 'start', msg: 'Hi' });
+        }
+    
+        function unknownCmd() {
+            // Потоку отправляется объект-команда.
+            worker.postMessage({ cmd: 'unknown', msg: '???' });
+        }
+ 
+        //остановка потока    
+        function stopCmd() {
+            // Потоку отправляется объект-команда.
+            worker.postMessage({ cmd: 'stop', msg: 'Bye' });
+        }
+
+        function messageHandler(e) {
+            document.getElementById("output").innerHTML = e.data;
+        }
+
+    </script>
+
+</body>
+</html>

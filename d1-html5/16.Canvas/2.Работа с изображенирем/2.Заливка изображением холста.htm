@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Заливка изображением холста</title>
+    <script>
+        function draw() {
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            let pattern = new Image();
+            pattern.src = "img2.jpg";
+
+            
+            pattern.onload = function () {
+                //createPattern() - позволяет залить холст указанным изображением
+                //pattern  - изображение
+                //repeat   - размножить по оси x и по оси y
+                //repeat-x - размножить по оси x
+                //repeat-y - размножить по оси y
+                context.fillStyle = context.createPattern(pattern, 'repeat');
+                context.fillRect(0, 0, 300, 300);
+            }
+        }
+
+        
+        window.addEventListener("load", draw, true);
+        
+    </script>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+</html>

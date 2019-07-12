@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Создание замкнутой геометрической фигуры</title>
+    <script src="Modernizr-2.0.6.js"></script>
+    <script>
+        function draw() {
+            // проверка поддержки элемента canvas в браузере.
+            if (!Modernizr.canvas) return;
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            context.save();
+            context.translate(100, 100);
+
+            // начало пути.
+            context.beginPath();
+            context.moveTo(0, 0);
+            context.lineTo(100, 0);
+            context.lineTo(100, 100);
+            context.lineTo(0, 100);
+
+            // closePath() - замыкает фигуру
+            // прорисовка линни от точки (0, 100) к началу пути.
+            context.closePath();
+
+            // прорисовка контура полученного пути.
+            context.stroke();
+
+            context.restore();
+        }
+
+       
+        window.addEventListener("load", draw, true);
+
+    </script>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+</html>

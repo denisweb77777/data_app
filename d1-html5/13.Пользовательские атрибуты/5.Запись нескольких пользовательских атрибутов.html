@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title> Запись нескольких пользовательских атрибутов</title>
+</head>
+
+<body>
+
+	<ul>
+		<li data-year="1996" data-color="белый">Cabrio</li>
+		<li data-year="2000" data-color="черный">Corrado</li>
+	</ul>
+
+	<p></p>
+
+	<script>
+		window.onload = function () {
+			let cars = document.getElementsByTagName("li");
+
+			for (let i = 0; i < cars.length; i++) {
+
+				cars[0].dataset.color = "зеленый";
+				cars[1].dataset.color = "синий";
+
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Методы для рисования прямоугольников</title>
+    <script src="Modernizr-2.0.6.js"></script>
+    <script>
+        function draw() {
+            if (!Modernizr.canvas) return;
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            // заполнение прямоугольной области синим цветом.
+            context.fillStyle = "blue";         //цвет заливки
+            context.fillRect(100, 100, 50, 50); //фигура, которую необходимо будет залить
+                                                //100,100 - начальные координаты
+                                                //50, 50  - ширина и высота прямоугольника
+            // вычерчивание красной границы толщиной в 10 пикселей
+            context.strokeStyle = "red";
+            context.lineWidth = 10;
+            context.strokeRect(100, 100, 50, 50); //фигура границы которой нужно будет очертить
+                                                  //100,100 - начальные координаты
+                                                  //50, 50  - ширина и высота прямоугольника
+
+            // очистка прямоугольной области от контента.
+            context.clearRect(125, 125, 35, 35);
+        }
+
+        window.addEventListener("load", draw, true);
+        
+    </script>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+</html>

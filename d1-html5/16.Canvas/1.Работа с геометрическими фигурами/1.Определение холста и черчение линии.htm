@@ -1,0 +1,45 @@
+﻿<!--
+Canvas(холст) - прямоугольная область для рисования растровой графики с помощью JavaScript.
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Определение холста и черчение линии</title>
+    <!-- Modernizr - это js-библиотека которая проверяет поддержку инструментов HTML5 и CSS3 браузером -->
+    <script src="Modernizr-2.0.6.js"></script>
+</head>
+
+<body>
+    <script>
+        function draw() {
+            // проверка поддержки элемента canvas в браузере.
+            if (!Modernizr.canvas) return;
+
+            // получение элемента
+            let canvas = document.getElementById("canvas");
+            //на холсте будет нарисована двумерная графика
+            let context = canvas.getContext("2d");
+
+            // создание пути.
+            context.beginPath();      //начинаем рисовать фигуру
+            context.moveTo(100, 100); //передвинуть кисть на указанные координаты(над холстом)
+            context.lineTo(200, 200); //ведем линию(толщиной в 1px) к координатам 200 на 200
+
+            // проявление линии на холсте.
+            context.stroke(); 
+        }
+
+        
+        window.addEventListener("load", draw, true);
+        
+    </script>
+
+
+    <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+
+</html>

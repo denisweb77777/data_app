@@ -1,0 +1,4 @@
+http://www.google.com/webmasters/tools/richsnippets - инструмент проверки структуры данных
+https://schema.org/ - официальный сайт словаря семантической разметки
+http://support.google.com/webmasters/bin/answer.py?hl=ru&answer=99170  - структурированные данные
+

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Радиальный градиент(на основе окружности)</title>
+    <script>
+        function draw() {
+
+            let canvas = document.getElementById("canvas");
+            let context = canvas.getContext("2d");
+
+            // Создание радиального градиента.
+            // createRadialGradient() - позволяет создать радиальный градиент
+            // 150, 150 - координата центара первого круга
+            // 100      - радиус первого круга
+            // 150, 150 - координата центара второго круга
+            // 200      - радиус второго круга
+            let gradient = context.createRadialGradient(150, 150, 100, 150, 150, 200);
+         
+            //настройка вектора от центра первой оружности к внешнему краю последней окружности
+            gradient.addColorStop(0, "Orange");
+            gradient.addColorStop(1, "Red");
+
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, 300, 300);
+        }
+
+        
+        window.addEventListener("load", draw, true);
+
+    </script>
+</head>
+<body>
+    <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
+        Ваш браузер не поддерживает элемент <b>Canvas</b>
+    </canvas>
+</body>
+</html>

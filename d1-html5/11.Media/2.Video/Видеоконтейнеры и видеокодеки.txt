@@ -1,0 +1,14 @@
+Видеоконтейнер - служит для хранения медиа-файлов(video):
+
+Audio Video Interleave (.avi)
+Flash Video (.flv)
+MPEG 4(.mp4)
+Matroska(.mkv)
+Ogg(.ogv)
+
+
+Видеокодек - алгоритм для обработки файла с целью уменьшения их размера:
+
+H.264 
+VP8
+Ogg Theora

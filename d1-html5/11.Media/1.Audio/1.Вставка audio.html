@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Вставка audio</title>
+</head>
+
+<body>
+
+	<!-- 1-й способ(не рекомендуется)-->
+	<audio src="audio.mp3" controls autoplay>
+		Браузер не поддерживает воспроизведение звуковых медиафайлов
+	</audio>
+	
+	<!-- 2-й способ(рекомендуется)-->
+	<audio controls autoplay>
+		<source src="audio.mp3">
+		<source src="audio.ogg"> 
+		Браузер не поддерживает воспроизведение звуковых медиафайлов
+	</audio>
+
+</body>
+
+</html>

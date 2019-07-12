@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Маркированый список</title>
+
+	<style>
+			ul
+			{
+				list-style-type:disc;     /*disc   - маркер в виде точки
+										    circle - маркер в виде кружка
+											square - маркер в виде квадрата
+											none   - маркер отсутствует*/
+		
+				list-style-position:inside; /*inside  - маркер обтекается текстом
+											  outside - маркер не обтекается текстом(по умолчанию)*/
+		
+				list-style-image: url("ball.gif");  /*url("ball.gif") - путь к файлу
+																							none            - отменяет изображение в качестве маркера для родительского элемента.
+																							inherit         - наследует значение родителя*/
+			}
+		</style>
+</head>
+<body>
+
+  <ul>
+		<li>Элемент 1</li>
+		<li>Элемент 2</li>
+		<li>Элемент 3</li>
+  </ul>
+	
+</body>
+</html>

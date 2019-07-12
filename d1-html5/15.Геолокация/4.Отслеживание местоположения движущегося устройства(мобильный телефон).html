@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Отслеживание местоположения движущегося устройства(мобильный телефон)</title>
+    <script type="text/javascript">
+
+        if (window.addEventListener)
+            window.addEventListener("load", function () {
+                document.getElementById("start").onclick = startWatch;
+                document.getElementById("stop").onclick = stopWatch;
+            }, true);
+        
+        let watchId;
+
+        function startWatch() {
+			// watchPosition() - позволяет установить слежение за местоположением движущегося объекта
+			// maximumAge - позволяет указать через какой промежуток времени обновлять информацию о месте положения объекта
+            watchId = navigator.geolocation.watchPosition(updateLocation, handleError, { maximumAge: 1000 });
+        }
+
+        function stopWatch() {
+			//clearWatch() - прикращение ослеживания местоположения устройства
+            navigator.geolocation.clearWatch(watchId);
+        }
+
+        function updateLocation(position) {
+            let $ = function (selector) {
+                return document.getElementById(selector);
+            }
+
+            $("latitude").innerHTML = position.coords.latitude;
+            $("longitude").innerHTML = position.coords.longitude;
+            $("accuracy").innerHTML = position.coords.accuracy;
+            $("altitude").innerHTML = position.coords.altitude;
+            $("altitudeAccuracy").innerHTML = position.coords.altitudeAccuracy;
+            $("heading").innerHTML = position.coords.heading;
+            $("speed").innerHTML = position.coords.speed;
+        }
+
+        function handleError(error) {
+            switch (error.code) {
+                case 0:
+                    updateStatus("При попытке определить местоположение возникала ошибка: " + error.message);
+                    break;
+                case 1:
+                    updateStatus("Пользователь запретил получение данных о местоположении.");
+                    break;
+                case 2:
+                    updateStatus("Браузеру не удалось определить местоположение: " + error.message);
+                    break;
+                case 3:
+                    updateStatus("Истекло доступное время ожидания.");
+                    break;
+            }
+        }
+
+        function updateStatus(message) {
+            document.getElementById("status").innerHTML = message;
+        }
+    </script>
+</head>
+
+<body>
+    <button id="start">
+        Начать отслеживание позиции
+    </button>
+
+    <button id="stop">
+        Завершить отслеживание позиции
+    </button>
+
+    Широта:          <p id="latitude"></p><br>
+    Долгота:         <p id="longitude"></p><br>
+    Точность(м):     <p id="accuracy"></p><br>
+    Высота:          <p id="altitude"></p><br>
+    Точность(высота):<p id="altitudeAccuracy"></p><br>
+    Направление:     <p id="heading"></p><br>
+    Скорость:        <p id="speed"></p><br>
+    
+    <p id="status"></p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Обращение к пользовательским атрибутам через JavaScript</title>
+</head>
+
+<body>
+
+	<p data-bind="value"></p>
+
+	<script>
+
+		//1-й способ
+		let v = e.getAttribute("data-bind");    //получить значение атрибута
+		e.setAttribute("data-bind", "new val"); //установить значение атрибута
+
+		//2-й способ (рекомендуется)
+		let v = e.dataset.bind;
+		e.dataset.bind = "new value";
+		
+	</script>
+
+</body>
+
+</html>
