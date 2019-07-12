@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<title>Служебные метатеги</title>
-
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">                   <!-- заставляет IE работать в определенном режиме, указанном в content (другие браузеры игнорируют эту директиву) -->
 	  <meta http-equiv="Сontent-Type"     content="text/html charset=utf-8"/> <!-- тип и кодировка содержимого -->
 	  <meta http-equiv="content-language" content="ru"/>                      <!-- язык содержимого -->
 		<meta http-equiv="reply-to"         content="support@net.ru"/>          <!-- электронная почта для поддержки -->
@@ -10,13 +10,15 @@
 		<meta http-equiv="refresh" content="20; Url=https://rozetka.com.ua"/>   <!-- перенаправление по указанному адресу через двадцать секунд -->
 		<meta http-equiv="pragma"  content="no-cache"/>                         <!-- не сохранять страницу в кэш браузера (используется для баннеров) -->
 		<meta http-equiv="Expires" content="Wed, 26 Feb 1999 08:21:57 GMT" />   <!-- если указанная в теге дата прошла, то браузер должен сделать повторный сетевой запрос, а не использовать копию из кэша --> 
-
 </head>
 <body>
 		
 </body>
 </html>
 
-
-
+<!-- 
+	Браузеры преобразовывают значение атрибута http-equiv, заданное с помощью content, 
+	в формат заголовка ответа HTTP и обрабатывают их, 
+	как будто они прибыли непосредственно от сервера.
+-->
 

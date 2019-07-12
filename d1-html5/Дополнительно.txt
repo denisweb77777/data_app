@@ -1,2 +1,5 @@
-HTML(HyperText Markup Language) - гипертекстовый язык разметки веб-страницы.
-<!-- -->                        - комментарии   
+HTML(HyperText Markup Language)  - гипертекстовый язык разметки веб-страницы.
+<!-- -->                         - комментарии  
+
+Links: http://htmlbook.ru/       - справочник
+       https://validator.w3.org/ - валидатор html-кода

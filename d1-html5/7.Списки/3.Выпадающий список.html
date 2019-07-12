@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<select>
+	<select multiple autofocus size="2" autofocus name="select[]">
 		<optgroup label="Цвет">
 			<option value="c1">Апельсиновый</option>
 			<option value="c2">Лимонный</option>
@@ -14,14 +14,24 @@
 		</optgroup>
 		<optgroup label="Тон">
 			<option value="s1">Светлый</option>
-			<option value="s2">Нормальный</option>
-			<option value="s3">Темный</option>
+			<option value="s2" disabled>Нормальный</option>
+			<option value="s3" selected>Темный</option>
 		</optgroup>
 	</select>
 </body>
 
 </html>
 
+<!--
+	multiple  - позволяет выбрать несколько элементов из списка.
+	size      - количество изначально отображаемых строк списка.
+	autofocus - список получает фокус после загрузки страницы.
+	selected  - изначально выбранный элемент списка.
+	disabled  - элемент списка, который нельзя выбрать.
+	label     - название группы списка.
+	value     - значение, которое будет отправлено на сервер. 
+	name      - имя элемента для отправки на сервер или обращения через скрипты.
+-->
 
 
 
