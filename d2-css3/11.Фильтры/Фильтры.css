@@ -1,0 +1,13 @@
+#object {
+  filter:grayscale(100%);             /*оттенок серого*/
+  filter:sepia(100%);                 /*сепия*/
+  filter:sepia(100%) grayscale(50%);  /*комбинированный фильтр*/
+  filter:saturate(3);                 /*насыщенность цветов*/ 
+  filter:blur(2px);                   /*размытие изображения*/
+  filter:contrast(200%);              /*контрастность*/
+  filter:brightness(2);               /*яркость*/
+  filter:hue-rotate(270deg);          /*вращение цвета*/
+  filter:invert(100%);                /*инверсия*/
+  filter:opacity(0.5);                /*прозрачность*/
+}
+

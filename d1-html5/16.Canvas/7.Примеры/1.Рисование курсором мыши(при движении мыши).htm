@@ -21,10 +21,10 @@
             let x, y;
             
             // Получение координат мыши относительно элемента canvas
-            if (e.layerX || e.layerX == 0) { // Firefox
+            if (e.layerX || e.layerY == 0) { // Firefox
                 x = e.layerX;
                 y = e.layerY;
-            } else if (e.offsetX || e.offsetX == 0) { //другие браузеры
+            } else if (e.offsetX || e.offsetY == 0) { //другие браузеры
                 x = e.offsetX;
                 y = e.offsetY;
             }

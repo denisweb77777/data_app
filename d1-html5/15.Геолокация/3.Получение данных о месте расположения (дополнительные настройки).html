@@ -14,7 +14,7 @@
 
     <p id="status"></p>
     
-    <script type="text/javascript">
+    <script>
         document.getElementById("get").onclick = function () {
 
             showLoadStatus();
@@ -30,7 +30,6 @@
 
             function updateLocation(position) {
 
-                //вспомогательная функция
                 let $ = function (selector) {
                     return document.getElementById(selector);
                 }

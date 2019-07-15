@@ -1,22 +1,22 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <title>Несколько действий в потоке</title>
 </head>
+
 <body>
 
-    <button id="btnStart">
-        Команда Старт</button>
-    <button id="btnUnknown">
-        Команда Unknown</button>
-    <button id="btnStop">
-        Команда Стоп</button>
+    <button id="btnStart">Команда Старт</button>
+    <button id="btnUnknown">Команда Unknown(неизвестная)</button>
+    <button id="btnStop">Команда Стоп</button>
 
     <div id="output">
     </div>
 
     <script>
-        let worker = new Worker("task2.js"); // создание потока Web Worker.
+        // Создание дополнительного потока.
+        let worker = new Worker("worker2.js"); 
 
         window.addEventListener("load", function () {
             document.getElementById("btnStart").addEventListener("click", startCmd, true);
@@ -25,23 +25,25 @@
             worker.addEventListener("message", messageHandler, true);
         }, true);
 
-        //запуск потока обработка данных в потоке
+        // Запуск потока и обработка данных в потоке
         function startCmd() {
             // Потоку отправляется объект-команда
-            worker.postMessage({ cmd: 'start', msg: 'Hi' });
+            worker.postMessage({ cmd: 'start', msg: 'ДА!' });
         }
-    
+
+        // Отправка неизвестной команды в поток
         function unknownCmd() {
             // Потоку отправляется объект-команда.
             worker.postMessage({ cmd: 'unknown', msg: '???' });
         }
- 
-        //остановка потока    
+
+        // Остановка потока    
         function stopCmd() {
             // Потоку отправляется объект-команда.
-            worker.postMessage({ cmd: 'stop', msg: 'Bye' });
+            worker.postMessage({ cmd: 'stop', msg: 'BYE!' });
         }
 
+        // Вывод ответа потока на экран.
         function messageHandler(e) {
             document.getElementById("output").innerHTML = e.data;
         }
@@ -49,4 +51,5 @@
     </script>
 
 </body>
+
 </html>

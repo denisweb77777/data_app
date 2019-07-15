@@ -1,0 +1,13 @@
+p{
+  text-transform:none;
+}
+
+/*
+
+	text-transform    - преобразование 
+      none          - преобразование отсутствует
+      capitalize    - первых букв в заглавные
+      lowercase     - всех букв в строчные
+			uppercase     - всех букв в заглавные
+
+*/

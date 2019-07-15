@@ -1,0 +1,17 @@
+/*
+
+	<form action="">
+		<input type="text">
+		<input type="text">
+	</form>
+
+*/
+
+input:enabled {background-color: gold} /*применяется для активных элементов формы*/
+input:disabled{background: red}        /*применяется когда у формы есть атрибут disabled*/
+input:checked{margin-left: 25px;}        /*используется для кнопки radio-button или checkbox в момент ее выбора*/
+input:valid{background: red;}          /*испльзовать для правильно заполненного поля*/
+input:invalid{background: green;}      /*использовать для неправильно заполненнного поля*/
+input:required{background: green;}     /*для отметки обязательных для заполнения полей(символом *)*/
+input:read-only{background: green;}    /*поле которое не может быть изменено пользователем*/
+input:read-write{background: green;}   /*поле которое может быть изменено пользователем*/

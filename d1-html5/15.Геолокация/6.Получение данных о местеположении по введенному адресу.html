@@ -1,87 +1,82 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <title>Получение данных о местеположении по введенному адресу</title>
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script>
-        window.onload = function () {
-            // проверяем нажатие кнопки 
-            document.getElementById('go').onclick = function () {
-
-                // получаем введенный пользователем адрес 
-                let address = document.getElementById('address').value;
-
-                if (address) {
-                    // используем API Google Maps для геокодирования адреса
-                    // настраиваем объект Geocoder
-                    let geocoder = new google.maps.Geocoder();
-
-                    // возвращаем координаты
-                    geocoder.geocode({ 'address': address }, function (results, status) {
-
-                        //status - дополнительные сведения о полученном результате
-                        if (status == google.maps.GeocoderStatus.OK) {
-
-                            //result - полученные данные о месте положении
-                            //если координаты получены
-                            if (results[0]) {
-                                // выводим результаты на экран 
-                                printLatLong(
-                                    results[0].geometry.location.lat(), //широта
-                                    results[0].geometry.location.lng());//долгота
-                            } else {
-                                error('Google не возвратил результатов.');
-                            }
-
-                        } else {
-                            error("Геокодирование завершилось ошибкой - " + status);
-                        }
-                    });
-                }
-                else {
-                    error('Пожалуйста, введите адрес');
-                }
-            };
-        };
-
-        // выводим значения широты и долготы 
-        function printLatLong(lat, long) {
-            document.getElementById("latOutput").innerHTML = lat;
-            document.getElementById("longOutput").innerHTML = long;
-        }
-
-        function error(msg) {
-            alert(msg);
-        }
-
-    </script>
-</head>
-
-<body>
-    <div>
-        <label for="address">
-            Введите адрес(например Юности 19):
-            <input type="text" id="address" />
-        </label>
-
-        <div>
-            <input type="button" id="go" value="Определить широту и долготу" />
-        </div>
-
-        <br />
-
-        <table>
-            <tr>
-                <td>Широта:</td>
-                <td id="latOutput"></td>
-            </tr>
-            <tr>
-                <td>Долгота:</td>
-                <td id="longOutput"></td>
-            </tr>
-        </table>
+<html>
+  <head>
+    <title>Получение данных о месте положении и отображение на карте</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 500px;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="floating-panel">
+      <input id="address" type="textbox" value="Sydney, NSW">
+      <input id="submit" type="button" value="Geocode">
     </div>
-</body>
+    <div id="map"></div>
+    <p>Широта:<span id="latOutput"></span></p>
+    <p>Долгота:<span id="longOutput"></span></p>
 
+    <script>
+      //инициализация изначальной карты.  
+      function initMap() {
+        //создание и настройка карты
+        let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat: -34.397, lng: 150.644}
+        });
+
+        //создание геокодера
+        let geocoder = new google.maps.Geocoder();
+
+        //вызов функции геокодирования
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
+      }
+
+      //работа функции геокодирования
+      function geocodeAddress(geocoder, resultsMap) {
+        //получаем введенный пользователем адрес
+        let address = document.getElementById('address').value;
+        //получаем координаты
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            //добавляем на карту новые координаты  
+            resultsMap.setCenter(results[0].geometry.location);
+            //и устанавливаем маркер
+            let marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+            //вывод на экран широты и долготы:
+            document.getElementById("latOutput").innerHTML = results[0].geometry.location.lat();
+            document.getElementById("longOutput").innerHTML = results[0].geometry.location.lng();
+
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
+
+     
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqSQDDaJTAsMkOAJdO5_6-pp2WiSgBVvM&callback=initMap">
+     </script>
+  </body>
 </html>

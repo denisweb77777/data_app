@@ -12,6 +12,7 @@ Canvas(холст) - прямоугольная область для рисов
 </head>
 
 <body>
+
     <script>
         function draw() {
             // проверка поддержки элемента canvas в браузере.
@@ -19,7 +20,7 @@ Canvas(холст) - прямоугольная область для рисов
 
             // получение элемента
             let canvas = document.getElementById("canvas");
-            //на холсте будет нарисована двумерная графика
+            //на холсте будет нарисована двухмерная графика
             let context = canvas.getContext("2d");
 
             // создание пути.
@@ -28,14 +29,13 @@ Canvas(холст) - прямоугольная область для рисов
             context.lineTo(200, 200); //ведем линию(толщиной в 1px) к координатам 200 на 200
 
             // проявление линии на холсте.
-            context.stroke(); 
+            context.stroke();
         }
 
-        
-        window.addEventListener("load", draw, true);
-        
-    </script>
 
+        window.addEventListener("load", draw, true);
+
+    </script>
 
     <canvas id="canvas" height="300" width="300" style="border: solid 1px black;">
         Ваш браузер не поддерживает элемент <b>Canvas</b>

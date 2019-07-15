@@ -1,0 +1,13 @@
+p {
+	line-height:125%;  
+	word-spacing:30px;
+	letter-spacing:3px;
+}
+
+/*
+
+ 	line-height      - разрядка строк(межстрочный интервал)
+ 	word-spacing     - разрядка слов
+	letter-spacing   - разрядка букв
+	 
+*/

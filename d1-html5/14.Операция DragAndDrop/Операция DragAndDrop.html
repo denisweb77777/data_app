@@ -1,0 +1,129 @@
+<!-- Операция Drag and Drop - позволяет перетаскивать элементы -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Операция Drag and Drop</title>
+    <style>
+        #source {
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            cursor: move;
+            color: black;
+        }
+
+        #target {
+            background-color: blue;
+            width: 150px;
+            height: 150px;
+            padding: 5px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Для того что бы активировать возможность перетаскивания элемента необходимо:
+         1) установить на элементе атрибут draggable="true" 
+         2) создать обработчик на событие dragstart
+     -->
+    <div id="source" draggable="true">Этот элемент</div>
+    <div id="target">Перенести в эту область</div>
+
+    <script>
+
+        // События для перетаскиваемого элемента:
+        // dragstart - вызывается в самом начале переноса перетаскиваемого элемента.
+        // dragend   - вызывается в конце события перетаскивания - как успешного, так и отмененного.
+        // drag      - событие, возникающее в течении перетаскивания элемента.
+
+        // События для целевого элемента:
+        // dragenter - происходит в момент когда перетаскиваемый объект попадает в область целевого элемента (точнее курсор).
+        // dragleave - происходит когда перетаскиваемый элемент покидает область целевого элемента.
+        // dragover  - происходит когда перетаскиваемый элемент находиться над целевым элементом.
+        // drop      - вызывается, когда событие перетаскивания завершается отпусканием элемента над целевым элементом.
+
+        // Настройка процесса перетаскивания элемента:
+        // dataTransfer              - позволяет настроить процесс перетаскивания:
+        //   effectAllowed           - позволяет задать тип перетаскивания.
+        //   setData("key",data)     - позволяет в операции перетаскивания передавать данные (key - ключ, data - данные).
+        //   getData("key")          - позволяет получить данные по ключу передаваемые в операции перетаскивания(Drag&Drop). 
+        //   clearData()             - удаляет передаваемые данные.
+        //   setDragImage(img, x, y) - оп­ре­де­ля­ет изо­бра­же­ние, ко­то­рое долж­но ото­бра­жать­ся как ви­зу­аль­ное пред­став­ле­ние перетаскиваемых дан­ных.  
+        //                             (img - изображение , x,y - смещение курсора относительно левого верхнего угла изображения).
+
+        window.onload = function () {
+
+            let source = document.getElementById("source");
+            let target = document.getElementById("target");
+            let img = new Image();
+            img.src = "image.jpg";
+
+            //dragstart
+            source.addEventListener('dragstart', function (evt) {
+                this.style.border = "3px dotted #000";
+
+                //evt - объект текущего  события.
+                evt.dataTransfer.effectAllowed = "move";       //тип перетаскивания - перемещение ("move").
+                evt.dataTransfer.setData("Text", this.id);     //передаваемые данные - это id элемента.
+                evt.dataTransfer.setDragImage(img, 20, 20);    //установка изображения и координат смещения курсора.
+            });
+
+            //dragend
+            source.addEventListener("dragend", function (evt) {
+                this.style.border = "";
+            });
+
+            //drag
+            source.addEventListener("drag", function (evt) {
+                console.log('drag!');
+            });
+
+            /*---------------------------------------------------------------*/
+
+            //dragenter
+            target.addEventListener("dragenter", function (evt) {
+                this.style.border = "3px solid red";
+            });
+
+            //dragleave
+            target.addEventListener("dragleave", function (evt) {
+                this.style.border = "";
+            });
+
+            //dragover
+            target.addEventListener("dragover", function (evt) {
+                // Реализация данного обработчика по умолчанию не позволяет перетаскивать данные на целевой элемент, так как большая часть веб страницы не может принимать данные.
+                // Для того что бы цлевой элемент мог принять перетаскиваемые данные необходимо отменить стандартный обработчик установленный браузер (preventDefault).
+                if (evt.preventDefault) evt.preventDefault();
+                return false;
+            });
+
+            //drop
+            target.addEventListener("drop", function (evt) {
+
+                // Прекращаем дальнейшее распространение события по дереву DOM.
+                if (evt.stopPropagation) evt.stopPropagation();
+                // Отменяем возможный стандартный обработчик установленный браузером.
+                if (evt.preventDefault) evt.preventDefault();
+
+                this.style.border = "";
+
+                // Получаем информации которая передавалась через операцию drag & drop.
+                let id = evt.dataTransfer.getData("Text");
+
+                // Добавляем элемент в целевой элемент. 
+                // Так как в DOM не может быть два идентичных элемента, то элемент удаляется со своей старой позиции.
+                let elem = document.getElementById(id);
+                this.appendChild(elem);
+
+                return false;
+            }, false);
+        }
+    </script>
+
+</body>
+
+</html>

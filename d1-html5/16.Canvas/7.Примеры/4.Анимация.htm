@@ -21,16 +21,14 @@
 
         // https://developer.mozilla.org/en-US/docs/Web/API/window.requestAnimationFrame
         // requestAnimationFrame - метод, который указывает браузеру что наш код хочет выполнить анимацию 
-        // и запрашивает вызов callback функции перед следующей перерисовкой.
+        // и запрашивает вызов callback функции перед следующей перерисовкой кадра.
         window.requestFrame = function (callback) {
             // переменная f будет содержать ту функцию, для запроса отрисовки одного кадра, которую поддерживает текущий браузер.
-            let f = window.requestAnimationFrame
-                window.requestAnimationFrame ||
+            let f = window.requestAnimationFrame ||
                 window.webkitRequestAnimationFrame ||
                 function (callback) {
                     window.setTimeout(callback, 500);
-                }
-            
+                } 
             f(callback);
         };
 
@@ -50,16 +48,20 @@
         function animate(rect, canvas, context, startTime) {
 
             // определяем разницу между текущим временем и временем начала анимации.
-            let time = (new Date()).getTime() - startTime;
+            let time = new Date().getTime() - startTime;
 
             let linearSpeed = 100; //скорость анимации
 
             // pixels / second (определение новой координаты X для отображаемого элемента)
             let newX = linearSpeed * time / 1000;
+            //console.log(newX);
 
             // меняем свойство x объекта прямоугольника до тех пор пока он не дойдет до правого края канваса.
             if (newX < canvas.width - rect.width - rect.borderWidth / 2) {
                 rect.x = newX;
+                //console.log(rect.x);
+            }else{
+                return false;
             }
 
             // очищаем холст

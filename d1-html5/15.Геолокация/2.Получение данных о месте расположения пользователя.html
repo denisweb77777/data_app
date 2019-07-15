@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
     Широта:          <p id="latitude"></p><br>
     Долгота:         <p id="longitude"></p><br>
     Точность(м):     <p id="accuracy"></p><br>
@@ -17,7 +16,7 @@
 
     <p id="status"></p>
 
-    <script type="text/javascript">
+    <script>
         // getCurrentPosition(updateLocation, handleError) - позволяет один раз получить данные о местеположении.
         // updateLocation - метод, который запуститься после получения данных о местоположении.
         // handleError    - метод запуститься в случае сбоя при получении местоположения.
@@ -57,7 +56,6 @@
                     break;
             }
         }
-
 
         function updateStatus(message) {
             document.getElementById("status").innerHTML = message;

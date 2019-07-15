@@ -1,0 +1,26 @@
+#object {
+	
+	background:red;
+	background:linear-gradient(top,#fb0,#f50);
+					 /*radial-gradient*/
+
+	/*кроссбраузерность*/
+	background:-moz-linear-gradient(top,#fb0,#f50);
+	background:-webkit-linear-gradient(top,#fb0,#f50);
+	background:-o-linear-gradient(top,#fb0,#f50);
+	background:-ms-linear-gradient(top,#fb0,#f50);
+}
+
+
+/*
+	linear-gradient - линейный градиент
+	radial-gradient - радиальный градиент
+		#fb0 - начальный цвет
+		#f50 - конечный цвет
+		top [left][right][bottom][center][top left][center right][...] - начало градиента
+
+  moz    - для браузера Mozilla
+  webkit - для браузеров Safari, Chrome, Android
+  o      - для браузера Opera
+  ms     - для браузера IE
+*/

@@ -1,0 +1,32 @@
+/*Задание  фона*/
+#object
+{
+    background-color:aqua;                  /*задание цвета*/
+    background-image:url("module4/fon.jpg");  /*изображение в качестве фона*/
+    background-position:top left;             /*расположение картинки(top,bottom,left,right,center)*/
+    background-size: 100px 200px;             /*размеры фонового изображения (100px auto, 50% 50%)*/
+    background-size: cover;                   /*фон-картинка масштабируется относительно и ширины и высоты элемента*/
+    background-size: contain;                 /*фон-картинка маштабируется до заполнения высоты блока*/
+    background-repeat:repeat;                 /*размножение фона(repeat,repeat-x,repeat-y,no-repeat)*/
+    background-attachment:fixed/*scroll*/;    /*fixed - фон не двигается,а текст двигается*/
+    background-origin: border-box;            /*фон-изображение не учитывает border и padding(border перекрывает изображение)*/
+    background-origin: padding-box;           /*фон-изображение не учитывает border*/
+    background-origin: content-box;           /*фон-изображение учитывает border и padding*/
+    background-clip: border-box;              /*фон может отображаться во всех частях элемента (отступах и границe) (не работает)*/
+    background-clip: padding-box;             /*отображается фон контента и padding*/
+    background-clip: content-box;             /*отображается только фон контента без учета padding и border*/
+    
+    /*background:тут можно перечислить все свойства*/
+}
+
+/*Задание нескольких фоновых изображений*/
+#object
+{
+    background-image:url("image1.jpg"),url("image2.jpg"); 
+    background-position:top left, bottom left;           
+    background-repeat:no-repeat, no-repeat;         
+    background-size: 135px 41px, 100% 100%;  /*фон заданный первым будет распологаться на втором фоне*/   
+    
+    /*сокращенный синтаксис*/
+    background:135px 41px url("image1.jpg") no-repeat, 100% 100% url("image2.jpg") no-repeat;
+}

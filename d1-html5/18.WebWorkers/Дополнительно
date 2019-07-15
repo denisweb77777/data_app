@@ -1,0 +1,9 @@
+WebWorker может работать только в приложении, которое находится на сервере,
+иначе в консоль будет выведена ошибка: Failed to construct 'Worker': Script at 'file:///Path/to/worker.js' cannot be accessed from origin 'null'.
+
+WebWorker не может:
+- получать доступ к DOM.
+- получать доступ к объекту Window.
+- получать доступ к объекту Document.
+
+

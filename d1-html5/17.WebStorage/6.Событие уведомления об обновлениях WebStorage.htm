@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    Ключ:     <input id="keyInput" />
+    Ключ: <input id="keyInput" />
     Значение: <input id="valueInput" />
     <br />
     <button id="btnSave">Сохранить</button>
@@ -33,14 +33,14 @@
                 window.localStorage.setItem(key.value, val.value);
             }
 
-            //удаление данных
-            document.getElementById("btnRemove").onclick = function () {
-                window.localStorage.removeItem(key.value);
-            }
-
             //получение данных
             document.getElementById("btnGet").onclick = function () {
                 alert(window.localStorage.getItem(key.value));
+            }
+
+            //удаление данных
+            document.getElementById("btnRemove").onclick = function () {
+                window.localStorage.removeItem(key.value);
             }
         }
 

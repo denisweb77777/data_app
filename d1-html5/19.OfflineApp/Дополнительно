@@ -1,0 +1,11 @@
+1)Приложение будет работать только на сервере.
+
+2)На серверах MIME-тип файлов манифеста (.appcache) нужно настроить.
+  Если используется Apache необходимо добавить строчку AddType text/cache-manifest .appcache 
+	в файл .htaccess в корневой директории или же директории приложения.
+
+3)Обратить внимание на предупреждение в консоле:
+  Application Cache is deprecated in non-secure contexts ...
+
+4)Сохраненные в кеш файлы можно посмотреть по пути:
+  Инструменты разработчика(F12) -> Application -> Application Cache -> Manifest.appcache -> top

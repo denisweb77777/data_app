@@ -1,0 +1,27 @@
+/*
+   <div id="out">  
+       <div id="in"></div>
+   </div>
+*/
+
+/*элемент c id #in унаследует свойства элемента с id #out*/
+#out {
+    font-size: 10px;
+    color: red;
+}
+
+#in {               
+    padding: 20px;
+    /*inherit - позволяет явно указать наследуемое свойство*/
+    color: inherit; 
+}
+
+
+
+
+
+
+
+
+
+

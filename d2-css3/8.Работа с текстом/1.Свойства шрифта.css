@@ -1,0 +1,36 @@
+p {
+   font-family:"Times New Roman",Arial,sans-serif;
+   font-style:normal;
+   font-size:14pt; 
+   font-weight:normal;
+   text-decoration:overline;
+   color: red;
+   
+   /*font=font-style font-weight font-size/line-height font-family  - порядок значений для сокращенной записи свойств*/
+}
+
+/*
+  ----------
+  font-family     - название (Arial,Helvetica,Times New Roma, Times, Courier New, Courier) и семейство шрифта(sans-serif и т.д.)
+  ----------
+  font-style    - стиль шрифта
+       normal   - нормальный
+       italic   - курсив
+       oblique  - наклонный
+  ----------
+  font-size   - размер (240%, 10px, 1см, 10мм, 2.37pc, 2.37em, 5.28ex)
+  ----------
+  font-weight   - жирность
+       normal   - нормальный
+       bold     - жирный (еще значения: bolder,lighter, normal, 100,200,300,400,500,600,700,800,900)
+  ----------
+  text-decoration   - оформление
+       underline    - подчеркнутый
+       overline     - верхнее подчеркивание
+       line-through - перечеркивание
+       blink - мигание
+       (через пробел можно указать несколько свойств)
+  ---------
+  color  - цвет
+
+*/

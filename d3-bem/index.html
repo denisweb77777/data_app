@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Методология БЭМ</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+<!-- Методология БЭМ 
+
+1 Блок        - логически связанная группа элементов
+2 Элемент 
+3 Модификатор
+
+.picture                  - название блока (1 вар)
+.picture-gallery          - название блока (2 вар)
+.picture_color            - модификатор блока
+.picture_color_height     - модификатор блока 
+.picture__image           - элемент 
+.picture__image_selected  - модификатор элемента (используется для работы с чемто отличающимся от основной группы элементов)
+
+-->
+
+    <!--1-й блок-->
+    <div class="figures">
+        <div class="figures__circle"></div>
+        <div class="figures__circle figures__circle_150 figures__circle_sea figures__circle_square"></div>
+        <div class="figures__circle"></div>
+        <div class="figures__circle figures__circle_red"></div>
+        <!--Указал модификатор таким образом изменив элемент-->
+        <div class="figures__circle"></div>
+    </div>
+
+    <!--2-й блок-->
+    <div class="figures figures_orange_border">
+        <div class="figures__circle figures__circle_square figures__circle_black"></div>
+        <div class="figures__circle figures__circle_square figures__circle_black"></div>
+        <div class="figures__circle figures__circle_square figures__circle_black"></div>
+        <div class="figures__circle figures__circle_square figures__circle_black"></div>
+        <!--Указал модификатор таким образом изменив элемент-->
+        <div class="figures__circle figures__circle_square figures__circle_black"></div>
+    </div>
+
+</body>
+
+</html>

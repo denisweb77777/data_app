@@ -1,4 +1,4 @@
-﻿<!-- worker - поток в котором можно совершать одно действие -->
+﻿<!-- worker - дополнительный поток в котором можно обрабатывать данные -->
 
 <!DOCTYPE html>
 <html>
@@ -8,23 +8,34 @@
 </head>
 
 <body>
+    <!-- Ввести цифру -->
+    <input id="input" type="text" value="">
+    <button id="process">Обработать в потоке</button>
     <div id="output"></div>
 
     <script>
 
-        // создание потока (Web Worker).
-        // Worker(p) - конструктор позволяющий создать worker-поток
-        // p - код который будет работать в worker-потоке
-        let worker = new Worker("task1.js");
+        let input = document.getElementById('input');
+        let process = document.getElementById('process');
+        let output = document.getElementById('output');
 
-        // Привязка обработчика на событие message, которое будет возникать в случае если поток присылает данные.
-        worker.addEventListener("message", function (e) {
-            document.getElementById("output").innerHTML += "Ответ потока: " + e.data;
-        }, true);
+        //Создание дополнительного потока Web Worker:
+        //Worker(p) - конструктор позволяющий создать worker-поток.
+        //p - код который будет работать в worker-потоке.
+        let worker = new Worker('worker1.js');
 
-        // Запуск потока и отправка данных потоку.
-        // Когда воркер получит сообщение в нем произойдет message
-        worker.postMessage('Hello world');
+        //Отправка данных в worker-поток.
+        process.onclick = function () {
+            //postMessage() - метод, позволяющий добавлять данные в поток
+            worker.postMessage(input.value);
+        }
+
+        //Получение обработанных данных из worker-потока.
+        //onmessage - событие, служащее для взаимодействия с потоком.
+        //e - объект ответа потока (e.data - даннве полученные из потока).
+        worker.onmessage = function (e) {
+            output.innerHTML += "Ответ потока:" + e.data;
+        }
 
     </script>
 </body>

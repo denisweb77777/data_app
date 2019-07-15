@@ -1,0 +1,19 @@
+Безопасный список шрифтов:
+(в скобках указано семейство шрифтов)
+(всего существует пять семейств)
+
+Arial(sans-serif)   
+Arial-Black (sans-serif)
+Comic Sans MS (cursive)
+Courier New (monospace)
+Georgia (serif)
+Impact (sans-serif)
+Trebuchet MS (sans-serif)
+Times New Roman (serif)
+Trebuchet MS (sans-serif)
+Verdana (sans-serif)
+
+
+Googl Fonts    - шрифты гугл
+FontSquirrel   - генератор шрифтов
+www.fontov.net - можно скачать шрифты
