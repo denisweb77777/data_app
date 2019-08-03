@@ -1,0 +1,19 @@
+<!--
+    *ngSwitch - директива которая анализирует свойство choice и в зависимости от 
+                значения этого свойства  добавляется нужный div-блок.
+-->
+
+<div [ngSwitch]="choice">
+    <div *ngSwitchCase="'1'">
+        Option 1
+    </div>
+    <div *ngSwitchCase="'2'">
+        Option 2
+    </div>
+    <div *ngSwitchDefault>
+        Option default
+    </div>
+</div>
+
+<!-- Здесь происходит изменение свойства choice в компоненте -->
+<input type="text" [(ngModel)]="choice" />

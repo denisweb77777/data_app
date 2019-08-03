@@ -1,0 +1,16 @@
+<!-- Пример 1 -->
+
+<div>
+    <h4>Пример 1 (привязка к классу html-элемента)</h4>
+    <p [class]="addClass1">Some text</p>
+    <button (click)=addClassRed1()>Click</button><br>
+    <button (click)=addClassGreen1()>Click</button><br>
+</div>
+
+<!-- Пример 2 -->
+
+<div>
+    <h4>Пример 2 (привязка к классу html-элемента по имени класса)</h4>
+    <p [class.nameClass]="addClass2">Some text</p>
+    <button (click)=addClassRed2()>Click</button>
+</div>

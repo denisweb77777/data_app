@@ -1,0 +1,71 @@
+<!--------- Компоненты -------------------->
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Компоненты
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+            <mat-list-item>
+                <a routerLink="component-сreation">Создание компонента</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="life-cicles">События жизненного цикла компонента</a>
+            </mat-list-item>
+        </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<!---------- Директивы ------------------->
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Директивы
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+            <!-- интерполяция --------->
+            <mat-list-item>
+                <a routerLink="interpolation">Интерполяция</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="binding-property">Привязка к свойствам html-элемента</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="binding-events">Привязка к событию</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="binding-class">Привязка к классу</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="binding-style">Привязка к стилям</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="binding-attribute">Привязка к атрибутам</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="two-way-binding">Двунаправленная привязка</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="directive-ng-if">Директива ngIf</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="directive-ng-for">Директива ngFor</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="directive-ng-switch">Директива ngSwitch</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="directive-ng-class">Директива ngClass</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a routerLink="directive-ng-style">Директива ngStyle</a>
+            </mat-list-item>
+        </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+<router-outlet></router-outlet>
